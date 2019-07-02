@@ -1,28 +1,12 @@
 import React, {Component} from 'react';
 import {View,Text,Image,StyleSheet} from 'react-native';
 
-type Props = {};
-export default class Home extends Component<Props> {
-    static navigationOptions = {
-        //创建标签
-        tabBarLabel:'首页'
-        // //添加图标
-        // tabBarIcon:({focused})=>(
-        //         if (focused) {
-        //             return (
-        //                 <Image style={styles.tabBarIcon} source={require('../../img/fri_sel.png')}/>
-        //             );
-        //         }
-        //         return (
-        //             <Image style={styles.tabBarIcon} source={require('../../img/fri_nor.png')}/>
-        //         );
-        //     ),
-    }
-
+export default class Home extends Component {
     render() {
         return (
             <View style={styles.container}>
                 <Text>这是首页</Text>
+                <Image style={styles.tabBarIcon} source={require('../assets/image/icon_home_selected.png')}/>
             </View>
         );
     }
@@ -38,5 +22,5 @@ const styles = StyleSheet.create({
     tabBarIcon: {
         width: 21,
         height: 21,
-    }
+      }
 });
