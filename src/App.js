@@ -2,6 +2,11 @@ import React, {Component} from 'react';
 import {Platform, StyleSheet, Image, Text, View} from 'react-native';
 import {createAppContainer,createBottomTabNavigator} from 'react-navigation';
 import HomeScreen from './home/Home';
+import AmusementScreen from './home/Amusement';
+import SubscribeScreen from './home/Subscribe';
+import DiscoverScreen from './home/Discover';
+import MineScreen from './home/Mine';
+import Color from './assets/values/color'
 
 const AppTab = createBottomTabNavigator({
   Home: {
@@ -9,88 +14,78 @@ const AppTab = createBottomTabNavigator({
     navigationOptions: {
       tabBarLabel: '首页',
       tabBarIcon: ({focused, tintColor}) => {
-          if (focused) {
-            return (
-                <Image style={styles.tabBarIcon} 
-                source={require('./assets/image/icon_home_selected.png')}/>
-            );
-          }
           return (
-            <Image style={styles.tabBarIcon} 
-            source={require('./assets/image/icon_home_normal.png')}/>
-          );
+                <Image style={styles.tabBarIcon} 
+                source={
+                  focused ?
+                  require('./assets/image/icon_home_selected.png')
+                  :require('./assets/image/icon_home_normal.png')
+                }/>
+            );
       },
     }
   },
   Amusement: {
-    screen: HomeScreen,
+    screen: AmusementScreen,
     navigationOptions: {
       tabBarLabel: '娱乐',
       tabBarIcon: ({focused, tintColor}) => {
-          if (focused) {
-            return (
+        return (
                 <Image style={styles.tabBarIcon} 
-                source={require('./assets/image/icon_amusement_selected.png')}/>
+                source={
+                  focused ?
+                  require('./assets/image/icon_amusement_selected.png')
+                  :require('./assets/image/icon_amusement_normal.png')
+                }/>
             );
-          }
-          return (
-            <Image style={styles.tabBarIcon} 
-            source={require('./assets/image/icon_amusement_normal.png')}/>
-          );
       },
     }
   },
   Subscribe: {
-    screen: HomeScreen,
+    screen: SubscribeScreen,
     navigationOptions: {
       tabBarLabel: '订阅',
       tabBarIcon: ({focused, tintColor}) => {
-          if (focused) {
-            return (
+        return (
                 <Image style={styles.tabBarIcon} 
-                source={require('./assets/image/icon_subscribe_selected.png')}/>
+                source={
+                  focused ?
+                  require('./assets/image/icon_subscribe_selected.png')
+                  :require('./assets/image/icon_subscribe_normal.png')
+                }/>
             );
-          }
-          return (
-            <Image style={styles.tabBarIcon} 
-            source={require('./assets/image/icon_subscribe_normal.png')}/>
-          );
       },
     }
   },
   Discover: {
-    screen: HomeScreen,
+    screen: DiscoverScreen,
     navigationOptions: {
       tabBarLabel: '发现',
       tabBarIcon: ({focused, tintColor}) => {
-          if (focused) {
-            return (
-                <Image style={styles.tabBarIcon} 
-                source={require('./assets/image/icon_discover_selected.png')}/>
-            );
-          }
           return (
-            <Image style={styles.tabBarIcon} 
-            source={require('./assets/image/icon_discover_normal.png')}/>
-          );
+                <Image style={styles.tabBarIcon} 
+                source={
+                  focused ?
+                  require('./assets/image/icon_discover_selected.png')
+                  :require('./assets/image/icon_discover_normal.png')
+                }/>
+            );
       },
     }
   },
   Mine: {
-    screen: HomeScreen,
+    screen: MineScreen,
     navigationOptions: {
       tabBarLabel: '我的',
       tabBarIcon: ({focused, tintColor}) => {
-          if (focused) {
-            return (
+        return (
                 <Image style={styles.tabBarIcon} 
-                source={require('./assets/image/icon_mine_selected.png')}/>
+                source={
+                  focused ?
+                  require('./assets/image/icon_mine_selected.png')
+                  :require('./assets/image/icon_mine_normal.png')
+                }/>
             );
-          }
-          return (
-            <Image style={styles.tabBarIcon} 
-            source={require('./assets/image/icon_mine_normal.png')}/>
-          );
       },
     }
   },
@@ -100,9 +95,10 @@ const AppTab = createBottomTabNavigator({
   swipeEnabled: false,
   tabBarOptions: {
     showIcon: true,
-    activeTintColor: 'red',
+    activeTintColor: Color.color_333333,
+    inactiveTintColor: Color.color_666666,
     style: {
-      backgroundColor: '#fff',
+      backgroundColor: Color.color_white,
     },
   }
 })
